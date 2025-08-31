@@ -1,0 +1,8 @@
+site_name: Loccar Locadora
+theme:
+  name: material
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.tabs
+    - navigation.instant
