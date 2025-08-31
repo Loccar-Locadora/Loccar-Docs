@@ -1,11 +1,16 @@
 module.exports = {
   title: 'Loccar Locadora',
   tagline: 'Documentação oficial do projeto',
-  url: 'https://loccar-locadora.github.io', // Nome da organização
-  baseUrl: '/Loccar-Docs/', // Nome exato do repositório (com maiúsculas)
+  url: 'https://loccar-locadora.github.io',
+  baseUrl: '/Loccar-Docs/',
   favicon: 'img/favicon.ico',
-  organizationName: 'Loccar-Locadora', // Nome da organização GitHub
-  projectName: 'Loccar-Docs', // Nome exato do repositório
+  organizationName: 'Loccar-Locadora',
+  projectName: 'Loccar-Docs',
+  
+  // ADICIONE ESTAS LINHAS:
+  trailingSlash: false,
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   
   themeConfig: {
     navbar: {
@@ -25,8 +30,14 @@ module.exports = {
     [
       'classic',
       {
-        docs: { sidebarPath: require.resolve('./sidebars.js') },
-        theme: { customCss: require.resolve('./src/css/custom.css') },
+        docs: { 
+          sidebarPath: require.resolve('./sidebars.js'),
+          // ADICIONE ESTA LINHA:
+          routeBasePath: 'docs',
+        },
+        theme: { 
+          customCss: require.resolve('./src/css/custom.css') 
+        },
       },
     ],
   ],
