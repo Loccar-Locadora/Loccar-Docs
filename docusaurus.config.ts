@@ -1,11 +1,12 @@
 module.exports = {
   title: 'Loccar Locadora',
   tagline: 'Documentação oficial do projeto',
-  url: 'https://seuusuario.github.io',
-  baseUrl: '/my-project-docs/',
+  url: 'https://loccar-locadora.github.io', // Nome da organização
+  baseUrl: '/Loccar-Docs/', // Nome exato do repositório (com maiúsculas)
   favicon: 'img/favicon.ico',
-  organizationName: 'seuusuario', // seu usuário do GitHub
-  projectName: 'my-project-docs', // nome do repositório
+  organizationName: 'Loccar-Locadora', // Nome da organização GitHub
+  projectName: 'Loccar-Docs', // Nome exato do repositório
+  
   themeConfig: {
     navbar: {
       title: 'Loccar Locadora',
