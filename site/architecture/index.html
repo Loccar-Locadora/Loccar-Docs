@@ -1,0 +1,985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../backlog/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Arquitetura do Sistema - Loccar Locadora</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arquitetura-do-sistema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Loccar Locadora" class="md-header__button md-logo" aria-label="Loccar Locadora" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Loccar Locadora
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arquitetura do Sistema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Loccar Locadora
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Arquitetura do Sistema
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../backlog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backlog Prioritizado
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../diagrama-classes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Diagrama UML - Sistema de Locação de Veículos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../user-stories/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  User Stories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Loccar Locadora" class="md-nav__button md-logo" aria-label="Loccar Locadora" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Loccar Locadora
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loccar Locadora
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura do Sistema
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura do Sistema
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visão Geral
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-componentes-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Componentes do Sistema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Componentes do Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-frontend-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Frontend (Angular)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-shared" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Shared
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Routing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-assets-e-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Assets e Environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-backend-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Backend (.NET)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Backend (.NET)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visão Geral
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camadas-da-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camadas da Arquitetura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-webapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. WebAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Domain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Infra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-banco-de-dados-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Banco de Dados (PostgreSQL)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backlog Prioritizado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrama-classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diagrama UML - Sistema de Locação de Veículos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-stories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Stories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visão Geral
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-componentes-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Componentes do Sistema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Componentes do Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-frontend-angular" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Frontend (Angular)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Core
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-shared" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Shared
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Routing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-assets-e-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Assets e Environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-backend-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Backend (.NET)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Backend (.NET)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visão Geral
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camadas-da-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camadas da Arquitetura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-webapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. WebAPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Domain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Infra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-banco-de-dados-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Banco de Dados (PostgreSQL)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arquitetura-do-sistema">Arquitetura do Sistema</h1>
+<p>Este documento apresenta a <strong>arquitetura inicial</strong> do sistema, considerando o uso de Docker, PostgreSQL, .NET backend e Angular frontend.</p>
+<hr />
+<h2 id="1-visao-geral">1. Visão Geral</h2>
+<p>O sistema é composto por três camadas principais:</p>
+<table>
+<thead>
+<tr>
+<th>Camada</th>
+<th>Tecnologia</th>
+<th>Responsabilidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend</td>
+<td>Angular</td>
+<td>Interface do usuário, consumo das APIs do backend</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>.NET API</td>
+<td>Lógica de negócios, APIs REST, integração com DB</td>
+</tr>
+<tr>
+<td>Banco</td>
+<td>PostgreSQL</td>
+<td>Armazenamento de dados persistentes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-componentes-do-sistema">2. Componentes do Sistema</h2>
+<h3 id="21-frontend-angular">2.1 Frontend (Angular)</h3>
+<p>Camadas e Responsabilidades</p>
+<h3 id="1-core">1. Core</h3>
+<p>Serviços singleton que permanecem durante toda a aplicação.</p>
+<p>Autenticação, interceptadores HTTP, guards de rota.</p>
+<p>Modelos compartilhados.</p>
+<h3 id="2-shared">2. Shared</h3>
+<p>Componentes, pipes e diretivas que podem ser reutilizados em diversos módulos.</p>
+<p>Não deve conter dependências de serviços específicos do módulo.</p>
+<h3 id="3-features">3. Features</h3>
+<p>Cada módulo representa uma funcionalidade do sistema.</p>
+<p>Componentes, serviços e rotas encapsulados por módulo.</p>
+<p>Lazy loading para otimizar carregamento.</p>
+<h3 id="4-routing">4. Routing</h3>
+<p>app-routing.module.ts define rotas principais e módulos carregados sob demanda.</p>
+<p>Cada feature pode ter seu próprio routing module para encapsular rotas específicas.</p>
+<h3 id="5-assets-e-environments">5. Assets e Environments</h3>
+<p>assets/: imagens, ícones, fontes e arquivos estáticos.</p>
+<p>environments/: configurações específicas para dev/prod (API endpoints, flags).</p>
+<hr />
+<h2 id="22-backend-net">2.2 Backend (.NET)</h2>
+<h3 id="visao-geral">Visão Geral</h3>
+<p>Este documento descreve a arquitetura do sistema <strong>Loccar</strong>, estruturado em camadas para garantir separação de responsabilidades, escalabilidade e facilidade de manutenção. O backend é desenvolvido em <strong>.NET</strong> e utiliza os seguintes módulos principais:</p>
+<ul>
+<li><strong>WebAPI</strong></li>
+<li><strong>Application</strong></li>
+<li><strong>Domain</strong></li>
+<li><strong>Infra</strong></li>
+<li><strong>Tests</strong></li>
+</ul>
+<hr />
+<h3 id="camadas-da-arquitetura">Camadas da Arquitetura</h3>
+<h3 id="1-webapi">1. WebAPI</h3>
+<ul>
+<li>Responsável por expor os <strong>endpoints HTTP</strong> do sistema.</li>
+<li>Faz a comunicação com os clientes (front-end, mobile ou integrações externas).</li>
+<li>Implementa <strong>controllers</strong> que recebem as requisições e delegam a lógica de negócio para a camada Application.</li>
+<li>Realiza a autenticação, autorização e tratamento das respostas (status code, mensagens).</li>
+</ul>
+<h3 id="2-application">2. Application</h3>
+<ul>
+<li>Contém a lógica de <strong>casos de uso</strong> e <strong>regras de aplicação</strong>.</li>
+<li>Orquestra a interação entre WebAPI e Domain.</li>
+<li>Implementa <strong>services</strong> e <strong>DTOs (Data Transfer Objects)</strong> para trafegar dados entre camadas.</li>
+<li>Centraliza regras de validação de fluxos do sistema.</li>
+</ul>
+<h3 id="3-domain">3. Domain</h3>
+<ul>
+<li>Núcleo da aplicação, contendo a <strong>lógica de negócio</strong> pura.</li>
+<li>Define as <strong>entidades, agregados, value objects e interfaces</strong>.</li>
+<li>Não depende de nenhuma tecnologia externa, garantindo independência e reutilização.</li>
+<li>Utiliza <strong>eventos de domínio</strong> e regras que refletem a realidade do negócio.</li>
+</ul>
+<h3 id="4-infra">4. Infra</h3>
+<ul>
+<li>Implementa detalhes técnicos e de infraestrutura.</li>
+<li>Contém o <strong>ORM</strong> (ex.: Entity Framework Core) e mapeamentos para o banco de dados.</li>
+<li>Define os <strong>repositórios concretos</strong>, serviços externos (pagamentos, autenticação, etc.) e configurações.</li>
+<li>Se comunica diretamente com o banco de dados e serviços externos.</li>
+</ul>
+<h3 id="5-tests">5. Tests</h3>
+<ul>
+<li>Responsável pelos <strong>testes automatizados</strong> do sistema.</li>
+<li>Inclui testes <strong>unitários</strong>, <strong>de integração</strong> e <strong>end-to-end</strong>.</li>
+<li>Garante a qualidade e evita regressões no código.</li>
+<li>Testa principalmente a camada <strong>Domain</strong> (unidade) e <strong>Application</strong> (integração).</li>
+</ul>
+<h3 id="23-banco-de-dados-postgresql">2.3 Banco de Dados (PostgreSQL)</h3>
+<ul>
+<li>Armazena informações persistentes:</li>
+<li>Usuários e credenciais.</li>
+<li>Eventos e categorias.</li>
+<li>Preferências do usuário.</li>
+<li>Executa em <strong>container Docker</strong>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.tabs.link", "navigation.tabs", "navigation.instant"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
