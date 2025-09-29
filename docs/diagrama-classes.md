@@ -10,9 +10,9 @@ Este documento apresenta o **diagrama de classes UML** do sistema de locação d
 
 ## Diagrama de Classes
 
-<p align="center">
-  <img src="assets/DiagramaClassesLoccar.jpg" alt="Diagrama de Classes">
-</p>
+<div style="text-align:center;">
+  <img src="assets/diagramaclassesloccar.jpg" alt="Diagrama de Classes" />
+</div>
 
 ---
 
