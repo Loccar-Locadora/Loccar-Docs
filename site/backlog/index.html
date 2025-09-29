@@ -12,7 +12,7 @@
         <link rel="prev" href="../architecture/">
       
       
-        <link rel="next" href="../user-stories/">
+        <link rel="next" href="../diagrama-classes/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -228,6 +228,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../diagrama-classes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Diagrama UML - Sistema de Locação de Veículos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../user-stories/" class="md-tabs__link">
         
   
@@ -416,6 +435,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../diagrama-classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diagrama UML - Sistema de Locação de Veículos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../user-stories/" class="md-nav__link">
         
   
@@ -517,55 +558,55 @@ As funcionalidades estão divididas em <strong>Must Have</strong>, <strong>Shoul
 <tbody>
 <tr>
 <td>US01</td>
-<td>Cadastro de Usuário: Como visitante, quero criar uma conta no sistema para acessar minhas informações pessoais e utilizar os serviços.</td>
+<td>Como Cliente, quero cadastrar-me no sistema para que eu possa acessar minhas informações e utilizar os serviços.</td>
 <td>Alta</td>
-<td>Pendente</td>
+<td>Concluído</td>
 </tr>
 <tr>
 <td>US02</td>
-<td>Login no Sistema: Como usuário cadastrado, quero realizar login no sistema para acessar minhas funcionalidades de forma segura.</td>
+<td>Como Cliente, quero fazer login/logout para que eu possa acessar o sistema de forma segura.</td>
 <td>Alta</td>
-<td>Pendente</td>
+<td>Concluído</td>
 </tr>
 <tr>
 <td>US03</td>
-<td>Recuperação de Senha: Como usuário cadastrado, quero recuperar minha senha via e-mail para que eu possa voltar a acessar o sistema caso a esqueça.</td>
+<td>Como Cliente, quero consultar veículos disponíveis para que eu possa escolher um carro para reserva.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US04</td>
-<td>Gerenciamento de Perfil: Como usuário autenticado, quero editar minhas informações pessoais para manter meus dados sempre atualizados.</td>
+<td>Como Cliente, quero calcular custo total da reserva para que eu possa planejar meus gastos.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US05</td>
-<td>Criar Evento: Como usuário autenticado, quero criar um evento para organizar compromissos e comprometer horários específicos.</td>
+<td>Como Cliente, quero reservar veículo online para que eu garanta a disponibilidade do carro desejado.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US06</td>
-<td>Editar Evento: Como usuário autenticado, quero editar um evento criado para que eu possa atualizar informações caso algo mude.</td>
+<td>Como Funcionário, quero registrar devolução de veículos para que eu mantenha o controle da frota.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US07</td>
-<td>Excluir Evento: Como usuário autenticado, quero excluir um evento para remover compromissos que não sejam mais necessários.</td>
+<td>Como Funcionário, quero aplicar multas por atraso para que eu cobre os clientes conforme regras da locadora.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US08</td>
-<td>Visualizar Agenda: Como usuário autenticado, quero visualizar todos os meus eventos em uma agenda para que eu tenha uma visão organizada dos meus compromissos.</td>
+<td>Como Administrador, quero cadastrar novos veículos para que eu amplie a frota da locadora.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US09</td>
-<td>Notificações de Evento: Como usuário autenticado, quero receber notificações antes de um evento para não me esquecer dos compromissos.</td>
+<td>Como Administrador, quero inativar veículos em manutenção para que eu impeça reservas em carros indisponíveis.</td>
 <td>Alta</td>
 <td>Pendente</td>
 </tr>
@@ -585,25 +626,31 @@ As funcionalidades estão divididas em <strong>Must Have</strong>, <strong>Shoul
 <tbody>
 <tr>
 <td>US10</td>
-<td>Compartilhar Agenda: Como usuário autenticado, quero compartilhar minha agenda com outros usuários para facilitar a colaboração e a organização em equipe.</td>
+<td>Como Cliente, quero cancelar reserva para que eu possa desistir de uma locação sem complicações.</td>
 <td>Média</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US11</td>
-<td>Pesquisa de Eventos: Como usuário autenticado, quero pesquisar eventos por nome ou data para localizar compromissos de forma rápida.</td>
+<td>Como Cliente, quero consultar histórico de reservas para que eu acompanhe minhas locações anteriores.</td>
 <td>Média</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US12</td>
-<td>Categorizar Eventos: Como usuário autenticado, quero adicionar categorias ou etiquetas aos meus eventos para organizar melhor os compromissos.</td>
+<td>Como Funcionário, quero cadastrar clientes manualmente para que eu possa incluir reservas presenciais.</td>
 <td>Média</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US13</td>
-<td>Visualização em Diferentes Modos: Como usuário autenticado, quero alternar entre visualização diária, semanal e mensal para analisar meus compromissos com diferentes perspectivas.</td>
+<td>Como Funcionário, quero registrar danos na devolução para que eu tenha controle sobre avarias nos veículos.</td>
+<td>Média</td>
+<td>Pendente</td>
+</tr>
+<tr>
+<td>US14</td>
+<td>Como Administrador, quero gerenciar usuários para que eu organize permissões e acessos ao sistema.</td>
 <td>Média</td>
 <td>Pendente</td>
 </tr>
@@ -622,26 +669,20 @@ As funcionalidades estão divididas em <strong>Must Have</strong>, <strong>Shoul
 </thead>
 <tbody>
 <tr>
-<td>US14</td>
-<td>Eventos Recorrentes: Como usuário autenticado, quero criar eventos recorrentes (diários, semanais, mensais) para economizar tempo na criação de compromissos repetitivos.</td>
-<td>Baixa</td>
-<td>Pendente</td>
-</tr>
-<tr>
 <td>US15</td>
-<td>Importar/Exportar Agenda: Como usuário autenticado, quero importar e exportar minha agenda em formatos populares (ex: .ics, Google Calendar) para integrar com outras plataformas.</td>
+<td>Como Cliente, quero filtrar veículos por categoria para que eu encontre mais rápido o carro desejado.</td>
 <td>Baixa</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US16</td>
-<td>Temas e Personalização: Como usuário autenticado, quero personalizar a aparência da minha agenda (tema claro/escuro, cores) para deixar a experiência mais agradável.</td>
+<td>Como Cliente, quero receber confirmação por e-mail para que eu tenha segurança da minha reserva.</td>
 <td>Baixa</td>
 <td>Pendente</td>
 </tr>
 <tr>
 <td>US17</td>
-<td>Integração com Serviços Externos: Como usuário autenticado, quero integrar minha agenda com serviços externos (ex: Zoom, Teams, Gmail) para facilitar a centralização de atividades.</td>
+<td>Como Funcionário, quero visualizar reservas ativas para que eu acompanhe em tempo real as locações em andamento.</td>
 <td>Baixa</td>
 <td>Pendente</td>
 </tr>
