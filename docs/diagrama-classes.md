@@ -1,4 +1,4 @@
-# Diagrama de Classes
+# Diagrama UML - Sistema de Locação de Veículos
 
 Este documento apresenta o **diagrama de classes UML** do sistema de locação de veículos, incluindo:
 
@@ -10,10 +10,11 @@ Este documento apresenta o **diagrama de classes UML** do sistema de locação d
 
 ## Diagrama de Classes
 
-<p align="center">
-  <img src="DiagramaClassesLoccar.jpg" alt="Diagrama de Classes">
-</p>
+<center>
 
+![Diagrama de Classes](DiagramaClassesLoccar.jpg)
+
+</center>
 
 ---
 
