@@ -2,121 +2,122 @@
 
 Este documento lista todas as **User Stories (US)** levantadas para o projeto.
 
----
+## US01
 
-### US01 - Cadastro de Usuário
-**Como** visitante  
-**Quero** criar uma conta no sistema  
-**Para** que eu possa acessar minhas informações pessoais e utilizar os serviços.
+**Como** Cliente,
+**Quero** Cadastrar-se no sistema,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
----
+## US02
 
-### US02 - Login no Sistema
-**Como** usuário cadastrado  
-**Quero** realizar login no sistema  
-**Para** acessar minhas funcionalidades de forma segura.
+**Como** Cliente,
+**Quero** Fazer login/logout,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
----
+## US03
 
-### US03 - Recuperação de Senha
-**Como** usuário cadastrado  
-**Quero** recuperar minha senha via e-mail  
-**Para** que eu possa voltar a acessar o sistema caso a esqueça.
+**Como** Cliente,
+**Quero** Consultar veículos disponíveis,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
----
+## US04
 
-### US04 - Gerenciamento de Perfil
-**Como** usuário autenticado  
-**Quero** editar minhas informações pessoais  
-**Para** manter meus dados sempre atualizados.
+**Como** Cliente,
+**Quero** Calcular custo total da reserva,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
----
 
-### US05 - Criar Evento
-**Como** usuário autenticado  
-**Quero** criar um evento  
-**Para** organizar compromissos e comprometer horários específicos.
+## US05
 
----
+**Como** Cliente,
+**Quero** Reservar veículo online,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
-### US06 - Editar Evento
-**Como** usuário autenticado  
-**Quero** editar um evento criado  
-**Para** que eu possa atualizar informações caso algo mude.
+## US06
 
----
+**Como** Funcionário,
+**Quero** Registrar devolução de veículos,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
-### US07 - Excluir Evento
-**Como** usuário autenticado  
-**Quero** excluir um evento  
-**Para** remover compromissos que não sejam mais necessários.
+## US07
 
----
+**Como** Funcionário,
+**Quero** Aplicar multas por atraso,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
-### US08 - Visualizar Agenda
-**Como** usuário autenticado  
-**Quero** visualizar todos os meus eventos em uma agenda  
-**Para** que eu tenha uma visão organizada dos meus compromissos.
+## US08
 
----
+**Como** Administrador,
+**Quero** Cadastrar novos veículos,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
-### US09 - Notificações de Evento
-**Como** usuário autenticado  
-**Quero** receber notificações antes de um evento  
-**Para** não me esquecer dos compromissos.
+## US09
 
----
+**Como** Administrador,
+**Quero** Inativar veículos em manutenção,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Must Have
 
-### US10 - Compartilhar Agenda
-**Como** usuário autenticado  
-**Quero** compartilhar minha agenda com outros usuários  
-**Para** facilitar a colaboração e a organização em equipe.
+## US10
 
----
+**Como** Cliente,
+**Quero** Cancelar reserva,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Should Have
 
-### US11 - Pesquisa de Eventos
-**Como** usuário autenticado  
-**Quero** pesquisar eventos por nome ou data  
-**Para** localizar compromissos de forma rápida.
+## US11
 
----
+**Como** Cliente,
+**Quero** Consultar histórico de reservas,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Should Have
 
-### US12 - Categorizar Eventos
-**Como** usuário autenticado  
-**Quero** adicionar categorias ou etiquetas aos meus eventos  
-**Para** organizar melhor os compromissos.
+## US12
 
----
+**Como** Funcionário,
+**Quero** Cadastrar clientes manualmente,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Should Have
 
-### US13 - Visualização em Diferentes Modos
-**Como** usuário autenticado  
-**Quero** alternar entre visualização diária, semanal e mensal  
-**Para** analisar meus compromissos com diferentes perspectivas.
+## US13
 
----
+**Como** Funcionário,
+**Quero** Registrar danos na devolução,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Should Have
 
-### US14 - Eventos Recorrentes
-**Como** usuário autenticado  
-**Quero** criar eventos recorrentes (diários, semanais, mensais)  
-**Para** economizar tempo na criação de compromissos repetitivos.
+## US14
 
----
+**Como** Administrador,
+**Quero** Gerenciar usuários,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Should Have
 
-### US15 - Importar/Exportar Agenda
-**Como** usuário autenticado  
-**Quero** importar e exportar minha agenda em formatos populares (ex: .ics, Google Calendar)  
-**Para** integrar com outras plataformas.
+## US15
 
----
+**Como** Cliente,
+**Quero** Filtrar veículos por categoria,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Could Have
 
-### US16 - Temas e Personalização
-**Como** usuário autenticado  
-**Quero** personalizar a aparência da minha agenda (tema claro/escuro, cores)  
-**Para** deixar a experiência mais agradável.
+## US16
 
----
+**Como** Cliente,
+**Quero** Receber confirmação por e-mail,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Could Have
 
-### US17 - Integração com Serviços Externos
-**Como** usuário autenticado  
-**Quero** integrar minha agenda com serviços externos (ex: Zoom, Teams, Gmail)  
-**Para** facilitar a centralização de atividades.
+## US17
+
+**Como** Funcionário,
+**Quero** Visualizar reservas ativas,
+**Para que** eu possa cumprir minha necessidade no sistema.
+**Prioridade:** Could Have

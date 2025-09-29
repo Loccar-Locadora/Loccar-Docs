@@ -9,15 +9,15 @@ As funcionalidades estão divididas em **Must Have**, **Should Have** e **Could 
 
 | ID   | User Story | Prioridade | Status |
 |------|------------|------------|--------|
-| US01 | Cadastro de Usuário: Como visitante, quero criar uma conta no sistema para acessar minhas informações pessoais e utilizar os serviços. | Alta | Pendente |
-| US02 | Login no Sistema: Como usuário cadastrado, quero realizar login no sistema para acessar minhas funcionalidades de forma segura. | Alta | Pendente |
-| US03 | Recuperação de Senha: Como usuário cadastrado, quero recuperar minha senha via e-mail para que eu possa voltar a acessar o sistema caso a esqueça. | Alta | Pendente |
-| US04 | Gerenciamento de Perfil: Como usuário autenticado, quero editar minhas informações pessoais para manter meus dados sempre atualizados. | Alta | Pendente |
-| US05 | Criar Evento: Como usuário autenticado, quero criar um evento para organizar compromissos e comprometer horários específicos. | Alta | Pendente |
-| US06 | Editar Evento: Como usuário autenticado, quero editar um evento criado para que eu possa atualizar informações caso algo mude. | Alta | Pendente |
-| US07 | Excluir Evento: Como usuário autenticado, quero excluir um evento para remover compromissos que não sejam mais necessários. | Alta | Pendente |
-| US08 | Visualizar Agenda: Como usuário autenticado, quero visualizar todos os meus eventos em uma agenda para que eu tenha uma visão organizada dos meus compromissos. | Alta | Pendente |
-| US09 | Notificações de Evento: Como usuário autenticado, quero receber notificações antes de um evento para não me esquecer dos compromissos. | Alta | Pendente |
+| US01 | Como Cliente, quero cadastrar-me no sistema para que eu possa acessar minhas informações e utilizar os serviços. | Alta | Concluído |
+| US02 | Como Cliente, quero fazer login/logout para que eu possa acessar o sistema de forma segura. | Alta | Concluído |
+| US03 | Como Cliente, quero consultar veículos disponíveis para que eu possa escolher um carro para reserva. | Alta | Pendente |
+| US04 | Como Cliente, quero calcular custo total da reserva para que eu possa planejar meus gastos. | Alta | Pendente |
+| US05 | Como Cliente, quero reservar veículo online para que eu garanta a disponibilidade do carro desejado. | Alta | Pendente |
+| US06 | Como Funcionário, quero registrar devolução de veículos para que eu mantenha o controle da frota. | Alta | Pendente |
+| US07 | Como Funcionário, quero aplicar multas por atraso para que eu cobre os clientes conforme regras da locadora. | Alta | Pendente |
+| US08 | Como Administrador, quero cadastrar novos veículos para que eu amplie a frota da locadora. | Alta | Pendente |
+| US09 | Como Administrador, quero inativar veículos em manutenção para que eu impeça reservas em carros indisponíveis. | Alta | Pendente |
 
 ---
 
@@ -25,10 +25,11 @@ As funcionalidades estão divididas em **Must Have**, **Should Have** e **Could 
 
 | ID   | User Story | Prioridade | Status |
 |------|------------|------------|--------|
-| US10 | Compartilhar Agenda: Como usuário autenticado, quero compartilhar minha agenda com outros usuários para facilitar a colaboração e a organização em equipe. | Média | Pendente |
-| US11 | Pesquisa de Eventos: Como usuário autenticado, quero pesquisar eventos por nome ou data para localizar compromissos de forma rápida. | Média | Pendente |
-| US12 | Categorizar Eventos: Como usuário autenticado, quero adicionar categorias ou etiquetas aos meus eventos para organizar melhor os compromissos. | Média | Pendente |
-| US13 | Visualização em Diferentes Modos: Como usuário autenticado, quero alternar entre visualização diária, semanal e mensal para analisar meus compromissos com diferentes perspectivas. | Média | Pendente |
+| US10 | Como Cliente, quero cancelar reserva para que eu possa desistir de uma locação sem complicações. | Média | Pendente |
+| US11 | Como Cliente, quero consultar histórico de reservas para que eu acompanhe minhas locações anteriores. | Média | Pendente |
+| US12 | Como Funcionário, quero cadastrar clientes manualmente para que eu possa incluir reservas presenciais. | Média | Pendente |
+| US13 | Como Funcionário, quero registrar danos na devolução para que eu tenha controle sobre avarias nos veículos. | Média | Pendente |
+| US14 | Como Administrador, quero gerenciar usuários para que eu organize permissões e acessos ao sistema. | Média | Pendente |
 
 ---
 
@@ -36,7 +37,6 @@ As funcionalidades estão divididas em **Must Have**, **Should Have** e **Could 
 
 | ID   | User Story | Prioridade | Status |
 |------|------------|------------|--------|
-| US14 | Eventos Recorrentes: Como usuário autenticado, quero criar eventos recorrentes (diários, semanais, mensais) para economizar tempo na criação de compromissos repetitivos. | Baixa | Pendente |
-| US15 | Importar/Exportar Agenda: Como usuário autenticado, quero importar e exportar minha agenda em formatos populares (ex: .ics, Google Calendar) para integrar com outras plataformas. | Baixa | Pendente |
-| US16 | Temas e Personalização: Como usuário autenticado, quero personalizar a aparência da minha agenda (tema claro/escuro, cores) para deixar a experiência mais agradável. | Baixa | Pendente |
-| US17 | Integração com Serviços Externos: Como usuário autenticado, quero integrar minha agenda com serviços externos (ex: Zoom, Teams, Gmail) para facilitar a centralização de atividades. | Baixa | Pendente |
+| US15 | Como Cliente, quero filtrar veículos por categoria para que eu encontre mais rápido o carro desejado. | Baixa | Pendente |
+| US16 | Como Cliente, quero receber confirmação por e-mail para que eu tenha segurança da minha reserva. | Baixa | Pendente |
+| US17 | Como Funcionário, quero visualizar reservas ativas para que eu acompanhe em tempo real as locações em andamento. | Baixa | Pendente |
