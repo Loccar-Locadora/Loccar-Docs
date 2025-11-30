@@ -21,15 +21,39 @@ O sistema é composto por três camadas principais:
 
 ### 2.1 Frontend (Angular)
 
-Camadas e Responsabilidades
 
-### 1. Core
+### Estrutura e Fluxo do Frontend
 
-Serviços singleton que permanecem durante toda a aplicação.
+O Loccar-Web utiliza Angular com uma arquitetura modular e baseada em rotas protegidas e controle de acesso por roles:
 
-Autenticação, interceptadores HTTP, guards de rota.
+- **Rotas protegidas:**
+  - Rotas administrativas (dashboard, usuários, veículos) exigem autenticação e role adequada (Admin/Funcionário).
+  - Rotas de cliente (veículos disponíveis, minhas reservas) acessíveis para CLIENT_USER/Cliente.
+  - Guardas (`authGuard`, `roleGuard`, `redirectGuard`) controlam acesso e redirecionamento conforme o perfil do usuário.
 
-Modelos compartilhados.
+- **Sidebar dinâmica:**
+  - Exibe opções de menu conforme permissões do usuário (Admin/Funcionário veem todas as opções, CLIENT_USER vê apenas veículos disponíveis e reservas).
+  - Labels e rotas dos menus são ajustados dinamicamente.
+
+- **Redirecionamento inteligente:**
+  - Após login, o usuário é redirecionado automaticamente para a tela correta (dashboard para Admin/Funcionário, veículos disponíveis para CLIENT_USER).
+  - O guard `redirectGuard` garante que o acesso à raiz leve o usuário para sua área apropriada.
+
+- **Integração de dados do usuário:**
+  - Após login, o frontend consome o endpoint `/find/email` para obter dados completos do usuário (nome, role, etc.) e exibir na interface.
+  - O estado de autenticação é mantido via BehaviorSubject e signals, garantindo atualização reativa da interface.
+
+- **Componentização:**
+  - Cada funcionalidade (dashboard, veículos, reservas, usuários) é um módulo/component independente, facilitando manutenção e escalabilidade.
+  - Serviços centralizam regras de negócio, autenticação e comunicação com a API.
+
+### Principais Arquivos e Fluxos
+
+- `app.routes.ts`: Define todas as rotas e aplica guards conforme necessário.
+- `auth.service.ts`: Gerencia autenticação, controle de acesso, dados do usuário e integração com a API.
+- `role.guard.ts` e `redirect.guard.ts`: Implementam lógica de permissão e redirecionamento baseada em role.
+- `sidebar.component.ts`: Renderiza o menu lateral dinâmico conforme permissões do usuário.
+- Componentes de cada feature (dashboard, veículos, reservas, usuários) consomem serviços e exibem dados conforme o perfil do usuário.
 
 ### 2. Shared
 
@@ -79,6 +103,9 @@ Este documento descreve a arquitetura do sistema **Loccar**, estruturado em cama
 - Faz a comunicação com os clientes (front-end, mobile ou integrações externas).
 - Implementa **controllers** que recebem as requisições e delegam a lógica de negócio para a camada Application.
 - Realiza a autenticação, autorização e tratamento das respostas (status code, mensagens).
+ Realiza a autenticação, autorização e tratamento das respostas (status code, mensagens).
+ Implementa controle de acesso por role nas rotas protegidas.
+ Endpoint `/find/email` retorna dados completos do usuário para o frontend.
 
 ### 2. Application
 - Contém a lógica de **casos de uso** e **regras de aplicação**.

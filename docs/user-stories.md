@@ -121,3 +121,46 @@ Este documento lista todas as **User Stories (US)** levantadas para o projeto.
 **Quero** Visualizar reservas ativas,
 **Para que** eu possa cumprir minha necessidade no sistema.
 **Prioridade:** Could Have
+
+
+## US18
+
+**Como** usuário CLIENT_USER,
+**Quero** acessar apenas a tela de veículos,
+**Para que** eu tenha segurança e privacidade no sistema.
+**Prioridade:** Must Have
+
+## US19
+
+**Como** Admin/Funcionário,
+**Quero** acessar todas as telas do sistema,
+**Para que** eu possa gerenciar a locadora sem restrições.
+**Prioridade:** Must Have
+
+## US20
+
+**Como** usuário,
+**Quero** ser redirecionado automaticamente para a tela correta após login,
+**Para que** eu acesse rapidamente o que preciso conforme meu perfil.
+**Prioridade:** Must Have
+
+## US21
+
+**Como** usuário,
+**Quero** ver meu nome e role corretos na sidebar, com dados completos vindos do backend,
+**Para que** eu tenha informações precisas na interface.
+**Prioridade:** Must Have
+
+## US22
+
+**Como** CLIENT_USER,
+**Quero** que links de dashboard e usuários fiquem ocultos na sidebar,
+**Para que** eu não veja opções que não posso acessar.
+**Prioridade:** Must Have
+
+## US23
+
+**Como** desenvolvedor,
+**Quero** que o sistema busque dados completos do usuário via endpoint /find/email após login,
+**Para que** a interface mostre informações atualizadas e corretas.
+**Prioridade:** Must Have

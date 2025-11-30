@@ -10,21 +10,21 @@ Este documento apresenta o **diagrama de classes UML** do sistema de locação d
 
 ## Diagrama de Classes
 
-<div style="text-align:center;">
-  <img src="assets/images/diagramaclassesloccar.jpg" alt="Diagrama de Classes" />
-</div>
+![Diagrama ER](assets/images/diagramaclassesloccar.jpg)
 
 ---
 
 ## Descrição das Classes
 
 ### Locatário
-Representa o cliente que realiza reservas.
-- **Atributos principais**: id, email, telefone, CNH, data de criação
+Representa o cliente/usuário que realiza reservas e acessa o sistema.
+- **Atributos principais**: id, email, telefone, CNH, data de criação, **role** (CLIENT_USER, Admin, Funcionário)
 - **Funções principais**: 
   - `cadastrar()`
   - `atualizarDados()`
   - `consultarReservas()`
+  - `getPermissoes()` (retorna permissões conforme role)
+  - `getRotaPadrao()` (retorna rota inicial conforme role)
 
 ### Reserva
 Representa uma reserva de veículo realizada por um locatário.
@@ -56,7 +56,9 @@ Classe base para todos os tipos de veículos.
 
 ## Relacionamentos
 
-- Um **Locatário** pode fazer **múltiplas reservas**.  
+- Um **Locatário/Usuário** pode fazer **múltiplas reservas**.  
 - Uma **Reserva** está associada a **um ou mais veículos**.  
 - A classe **Veículo** possui **especializações** (Carga, Passeio, Passageiro e Motocicleta), que herdam seus atributos e comportamentos.
+- O atributo **role** do usuário define as permissões de acesso e a rota inicial após login.
+- A interface (sidebar) exibe opções conforme o role do usuário, garantindo segurança e usabilidade.
 
