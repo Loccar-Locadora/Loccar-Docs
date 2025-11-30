@@ -247,6 +247,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../modelagem-banco/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modelagem do Banco de Dados
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../user-stories/" class="md-tabs__link">
         
   
@@ -400,9 +419,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-core" class="md-nav__link">
+  <a href="#estrutura-e-fluxo-do-frontend" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Core
+      Estrutura e Fluxo do Frontend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principais-arquivos-e-fluxos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais Arquivos e Fluxos
     </span>
   </a>
   
@@ -595,6 +623,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../modelagem-banco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelagem do Banco de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../user-stories/" class="md-nav__link">
         
   
@@ -665,9 +715,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-core" class="md-nav__link">
+  <a href="#estrutura-e-fluxo-do-frontend" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Core
+      Estrutura e Fluxo do Frontend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principais-arquivos-e-fluxos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principais Arquivos e Fluxos
     </span>
   </a>
   
@@ -851,11 +910,50 @@
 <hr />
 <h2 id="2-componentes-do-sistema">2. Componentes do Sistema</h2>
 <h3 id="21-frontend-angular">2.1 Frontend (Angular)</h3>
-<p>Camadas e Responsabilidades</p>
-<h3 id="1-core">1. Core</h3>
-<p>Serviços singleton que permanecem durante toda a aplicação.</p>
-<p>Autenticação, interceptadores HTTP, guards de rota.</p>
-<p>Modelos compartilhados.</p>
+<h3 id="estrutura-e-fluxo-do-frontend">Estrutura e Fluxo do Frontend</h3>
+<p>O Loccar-Web utiliza Angular com uma arquitetura modular e baseada em rotas protegidas e controle de acesso por roles:</p>
+<ul>
+<li><strong>Rotas protegidas:</strong></li>
+<li>Rotas administrativas (dashboard, usuários, veículos) exigem autenticação e role adequada (Admin/Funcionário).</li>
+<li>Rotas de cliente (veículos disponíveis, minhas reservas) acessíveis para CLIENT_USER/Cliente.</li>
+<li>
+<p>Guardas (<code>authGuard</code>, <code>roleGuard</code>, <code>redirectGuard</code>) controlam acesso e redirecionamento conforme o perfil do usuário.</p>
+</li>
+<li>
+<p><strong>Sidebar dinâmica:</strong></p>
+</li>
+<li>Exibe opções de menu conforme permissões do usuário (Admin/Funcionário veem todas as opções, CLIENT_USER vê apenas veículos disponíveis e reservas).</li>
+<li>
+<p>Labels e rotas dos menus são ajustados dinamicamente.</p>
+</li>
+<li>
+<p><strong>Redirecionamento inteligente:</strong></p>
+</li>
+<li>Após login, o usuário é redirecionado automaticamente para a tela correta (dashboard para Admin/Funcionário, veículos disponíveis para CLIENT_USER).</li>
+<li>
+<p>O guard <code>redirectGuard</code> garante que o acesso à raiz leve o usuário para sua área apropriada.</p>
+</li>
+<li>
+<p><strong>Integração de dados do usuário:</strong></p>
+</li>
+<li>Após login, o frontend consome o endpoint <code>/find/email</code> para obter dados completos do usuário (nome, role, etc.) e exibir na interface.</li>
+<li>
+<p>O estado de autenticação é mantido via BehaviorSubject e signals, garantindo atualização reativa da interface.</p>
+</li>
+<li>
+<p><strong>Componentização:</strong></p>
+</li>
+<li>Cada funcionalidade (dashboard, veículos, reservas, usuários) é um módulo/component independente, facilitando manutenção e escalabilidade.</li>
+<li>Serviços centralizam regras de negócio, autenticação e comunicação com a API.</li>
+</ul>
+<h3 id="principais-arquivos-e-fluxos">Principais Arquivos e Fluxos</h3>
+<ul>
+<li><code>app.routes.ts</code>: Define todas as rotas e aplica guards conforme necessário.</li>
+<li><code>auth.service.ts</code>: Gerencia autenticação, controle de acesso, dados do usuário e integração com a API.</li>
+<li><code>role.guard.ts</code> e <code>redirect.guard.ts</code>: Implementam lógica de permissão e redirecionamento baseada em role.</li>
+<li><code>sidebar.component.ts</code>: Renderiza o menu lateral dinâmico conforme permissões do usuário.</li>
+<li>Componentes de cada feature (dashboard, veículos, reservas, usuários) consomem serviços e exibem dados conforme o perfil do usuário.</li>
+</ul>
 <h3 id="2-shared">2. Shared</h3>
 <p>Componentes, pipes e diretivas que podem ser reutilizados em diversos módulos.</p>
 <p>Não deve conter dependências de serviços específicos do módulo.</p>
@@ -887,7 +985,10 @@
 <li>Responsável por expor os <strong>endpoints HTTP</strong> do sistema.</li>
 <li>Faz a comunicação com os clientes (front-end, mobile ou integrações externas).</li>
 <li>Implementa <strong>controllers</strong> que recebem as requisições e delegam a lógica de negócio para a camada Application.</li>
-<li>Realiza a autenticação, autorização e tratamento das respostas (status code, mensagens).</li>
+<li>Realiza a autenticação, autorização e tratamento das respostas (status code, mensagens).
+ Realiza a autenticação, autorização e tratamento das respostas (status code, mensagens).
+ Implementa controle de acesso por role nas rotas protegidas.
+ Endpoint <code>/find/email</code> retorna dados completos do usuário para o frontend.</li>
 </ul>
 <h3 id="2-application">2. Application</h3>
 <ul>

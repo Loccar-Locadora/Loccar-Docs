@@ -12,7 +12,7 @@
         <link rel="prev" href="../backlog/">
       
       
-        <link rel="next" href="../user-stories/">
+        <link rel="next" href="../modelagem-banco/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -235,6 +235,25 @@
     
   
   Diagrama de Classes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../modelagem-banco/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modelagem do Banco de Dados
 
       </a>
     </li>
@@ -505,6 +524,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../modelagem-banco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelagem do Banco de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../user-stories/" class="md-nav__link">
         
   
@@ -646,19 +687,18 @@
 </ul>
 <hr />
 <h2 id="diagrama-de-classes_1">Diagrama de Classes</h2>
-<div style="text-align:center;">
-  <img src="assets/images/diagramaclassesloccar.jpg" alt="Diagrama de Classes" />
-</div>
-
+<p><img alt="Diagrama ER" src="../assets/images/diagramaclassesloccar.jpg" /></p>
 <hr />
 <h2 id="descricao-das-classes">Descrição das Classes</h2>
 <h3 id="locatario">Locatário</h3>
-<p>Representa o cliente que realiza reservas.
-- <strong>Atributos principais</strong>: id, email, telefone, CNH, data de criação
+<p>Representa o cliente/usuário que realiza reservas e acessa o sistema.
+- <strong>Atributos principais</strong>: id, email, telefone, CNH, data de criação, <strong>role</strong> (CLIENT_USER, Admin, Funcionário)
 - <strong>Funções principais</strong>: 
   - <code>cadastrar()</code>
   - <code>atualizarDados()</code>
-  - <code>consultarReservas()</code></p>
+  - <code>consultarReservas()</code>
+  - <code>getPermissoes()</code> (retorna permissões conforme role)
+  - <code>getRotaPadrao()</code> (retorna rota inicial conforme role)</p>
 <h3 id="reserva">Reserva</h3>
 <p>Representa uma reserva de veículo realizada por um locatário.
 - <strong>Atributos principais</strong>: número da reserva, datas e horas de locação e entrega, diárias, valores de diárias e seguros
@@ -687,9 +727,11 @@
 <hr />
 <h2 id="relacionamentos">Relacionamentos</h2>
 <ul>
-<li>Um <strong>Locatário</strong> pode fazer <strong>múltiplas reservas</strong>.  </li>
+<li>Um <strong>Locatário/Usuário</strong> pode fazer <strong>múltiplas reservas</strong>.  </li>
 <li>Uma <strong>Reserva</strong> está associada a <strong>um ou mais veículos</strong>.  </li>
 <li>A classe <strong>Veículo</strong> possui <strong>especializações</strong> (Carga, Passeio, Passageiro e Motocicleta), que herdam seus atributos e comportamentos.</li>
+<li>O atributo <strong>role</strong> do usuário define as permissões de acesso e a rota inicial após login.</li>
+<li>A interface (sidebar) exibe opções conforme o role do usuário, garantindo segurança e usabilidade.</li>
 </ul>
 
 
